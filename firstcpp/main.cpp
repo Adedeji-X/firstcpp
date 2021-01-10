@@ -1,33 +1,43 @@
-//
-//  main.cpp
-//  firstcpp
-//
-//  Created by cloud on 5/21/20.
-//  Copyright © 2020 cloud. All rights reserved.
-//
+
+//Employee List
 
 #include <iostream>
+#include <fstream>
 #include <iomanip>
+
 
 using namespace std;
 
-int main() {
-    
-    cout << fixed << setprecision(2);
 
-    double temperature;
-    cout << "Enter temperature Line 17 :" << endl;
-    cin >> temperature;
+int main(){
     
-    if (temperature >= 60)
-    {
-        if (temperature >= 80)
-            cout << "go play ball" << endl;
-        else
-            cout << "go chill" << endl;
+    cout << left;
+    int emp_salary;
+    string emp_name;
+
+    fstream emp_file("/Users/cloud/Documents/cpp/emp.txt");
+    if (!emp_file) {
+        cout << "employee file not found" << endl;
+        return -9;
+        
     }
-    else
-        cout << " be in door" << endl;
+    
+    emp_file.ignore(255,'\n');
+    emp_file.ignore(255, '\n');
+    
+    //pre-read
+    
+    getline(emp_file, emp_name, ',');
+    emp_file >> emp_salary;
+
+    while (!emp_file.eof()) {
+        cout << setw(25) << emp_name << emp_salary;
+        
+    //post-read
+    getline(emp_file, emp_name, ',');
+    emp_file >> emp_salary;
+
+    }
     
     
     
