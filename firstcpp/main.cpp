@@ -15,7 +15,7 @@ int main(){
     int emp_salary;
     string emp_name;
 
-    fstream emp_file("/Users/cloud/Documents/cpp/emp.txt");
+    fstream emp_file("/Users/cloud/Documents/cpp/firstcpp/emp.txt");
     if (!emp_file) {
         cout << "employee file not found" << endl;
         return -5;
