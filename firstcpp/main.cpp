@@ -18,10 +18,12 @@ int main(){
     fstream emp_file("/Users/cloud/Documents/cpp/emp.txt");
     if (!emp_file) {
         cout << "employee file not found" << endl;
-        return -9;
+        return -5;
         
     }
     
+    cout << "\t\tEMPLOYEE LIST \n\n" ;
+    cout << setw(25) << "EMPLOYEE NAME" << "EMPLOYEE SALARY" << endl;
     emp_file.ignore(255,'\n');
     emp_file.ignore(255, '\n');
     
@@ -31,7 +33,7 @@ int main(){
     emp_file >> emp_salary;
 
     while (!emp_file.eof()) {
-        cout << setw(25) << emp_name << emp_salary;
+        cout << setw(25) << emp_name << emp_salary <<endl;
         
     //post-read
     getline(emp_file, emp_name, ',');
